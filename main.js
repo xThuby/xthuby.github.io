@@ -46,7 +46,8 @@ async function generateWord() {
   }
 
   corpus = (await readTextFile("bible.txt")).split(/\n| /);
-  corpus = corpus.slice(0, faithAmt * corpus.length);
+  corpus = corpus.slice(0, (faithAmt / 25) * corpus.length);
+  console.log(corpus.length);
 
   pairs = corpus.map((_, index) => corpus.slice(index, index + 2))
 
