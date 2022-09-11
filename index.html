@@ -1,0 +1,36 @@
+<html>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Bible Verse Generator</h1>
+    <div class="container my-3 text-center">
+      <div class="container">
+        <label for="faithMeter">Faith (More faith requires more spiritual energy):</label>
+      </div>
+      <input type="range" min="1" max="10" value="1" class="slider" id="faithMeter">
+    </div>
+    <div class="container my-3 text-center">
+      <button id="generateBtn" class="btn btn-secondary">Recieve Gods wisdom</button>
+    </div>
+    <p id="loading" class="text-info my-2 text-center" style="visibility: hidden;">Connecting to the Lord via prayer...
+    </p>
+    <div class="container my-3 text-center">
+      <textarea id="output" class="center w-50" readonly></textarea>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</body>
+
+
+</html>
