@@ -1,10 +1,13 @@
 $(document).ready(() => {
   $('#generateBtn').click(() => {
+    generateWord();
+    /*
     $('#loading').css("visibility", "visible");
     setTimeout(async () => {
       await generateWord();
       $('#loading').css("visibility", "hidden");
     }, 500);
+    */
   });
 });
 
@@ -27,15 +30,6 @@ async function readTextFile(file) {
   return contents;
 }
 
-function make_pairs(corpus) {
-  let pairs = [];
-  corpus.forEach((word, i, corpus) => {
-
-    pairs.push(corpus[i], corpus[i + 1])
-  });
-  return pairs;
-}
-
 let oldFaithAmt = 0;
 async function generateWord() {
 
@@ -45,17 +39,18 @@ async function generateWord() {
     cachedWordDict = undefined;
   }
 
-  corpus = (await readTextFile("bible.txt")).split(/\n| /);
+  let bible = await readTextFile("bible.txt");
+  bible = bible.replace(/([0-9])|:/g, '');
+  let corpus = bible.split(/\n| /);
   corpus = corpus.slice(0, (faithAmt / 25) * corpus.length);
-  console.log(corpus.length);
 
-  pairs = corpus.map((_, index) => corpus.slice(index, index + 2))
+  let pairs = corpus.map((_, index) => corpus.slice(index, index + 2))
 
   let wordDict = {}
   if (cachedWordDict == undefined) {
     pairs.forEach(([word1, word2]) => {
       if (Object.keys(wordDict).includes(word1)) {
-        wordDict[word1].push(word2);
+        wordDict[word1] = [...wordDict[word1], word2];
       } else {
         wordDict[word1] = [word2];
       }
