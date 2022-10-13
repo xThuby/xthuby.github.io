@@ -1,13 +1,12 @@
 $(document).ready(() => {
   $('#generateBtn').click(() => {
-    generateWord();
-    /*
+
     $('#loading').css("visibility", "visible");
     setTimeout(async () => {
       await generateWord();
       $('#loading').css("visibility", "hidden");
     }, 500);
-    */
+
   });
 });
 
